@@ -1,0 +1,35 @@
+{
+  "name": "updog",
+  "version": "0.0.1",
+  "description": "Rate pets for cuteness!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swbloom/updog.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongo"
+  ],
+  "author": "Ryan Christiani + Simon Bloom",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swbloom/updog/issues"
+  },
+  "homepage": "https://github.com/swbloom/updog#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0-alpha.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0"
+  }
+}

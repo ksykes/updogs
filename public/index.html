@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>UpDog</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="main-header">
+		<h1>UpDog 🐶</h1>
+		<nav>
+			<button class="add toggle-dogo">Add 🐶</button>
+		</nav>
+	</header>
+	<main id="dogos"></main>
+	<div class="add-dogo">
+		<form action="">
+			<i class="fa fa-times toggle-dogo"></i>
+			<div>
+				<label for="name">Name:</label>
+				<input type="text" id="name">
+			</div>
+			<div>
+				<label for="photo">Photo:</label>
+				<input type="text" id="photo">
+			</div>
+			<div>
+				<label for="description">Description:</label>
+				<textarea name="description" id="description"></textarea>
+				<input type="submit" value="Add">
+			</div>
+		</form>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
