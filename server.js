@@ -6,7 +6,9 @@ const Pet = require('./models/pet.js');
 const bodyParser = require('body-parser');
 
 // Telling it to connect to updog MongoDB database
-mongoose.connect('mongodb://localhost/updog');
+const DBURL = process.env.MONGODB_URI || 'mongodb://localhost/updog';
+mongoose.connect(DBURL);
+// mongoose.connect('mongodb://localhost/updog');
 
 const port = process.env.PORT || 8080;
 
