@@ -3,7 +3,10 @@ const updog = {};
 updog.getDogs = () => {
 	return $.ajax({
 		url: '/api/pets',
-		dataType: 'json'
+		dataType: 'json',
+		data: {
+			order_by: 'score'
+		}
 	});
 };
 
@@ -27,10 +30,20 @@ updog.upvote = (id) => {
 	});
 };
 
+updog.delete = (id) => {
+	return $.ajax({
+		url: `/api/pets/${id}`,
+		method: 'DELETE',
+		dataType: 'json'
+	})
+};
+
 updog.displayDogs = (dogs) => {
 	$('#dogos').empty();
 	dogs.forEach((dog) => {
 		const $container = $("<div>").addClass('dogo');
+		// A variable that stores a special jQuery object in it starts with a $ so you know that (a convention)
+		const $closeBtn = $('<i>').addClass('fa fa-times').data('id', dog._id);
 		const $img = $('<img>').attr('src',dog.photo);
 		const $name = $('<h3>').text(dog.name);
 		const $desc = $('<p>').text(dog.description);
@@ -38,7 +51,7 @@ updog.displayDogs = (dogs) => {
 		const $score = $('<p>').text(dog.score).addClass('score');
 		const $thumb = $('<p>').text('👍').addClass('updog').data('id',dog._id);
 		$scoreContainer.append($score,$thumb);
-		$container.append($img,$name,$desc,$scoreContainer);
+		$container.append($closeBtn,$img,$name,$desc,$scoreContainer);
 		$('#dogos').append($container);
 	})
 };
@@ -64,6 +77,14 @@ updog.events = () => {
 	$('#dogos').on('click', '.updog' ,function() {
 		const id = $(this).data('id');
 		updog.upvote(id)
+			.then(updog.getDogs)
+			.then(updog.displayDogs)
+	});
+
+	// Cannot use an arrow function because we need to use 'this'
+	$('#dogos').on('click', '.fa-times', function() {
+		const id = $(this).data('id');
+		updog.delete(id)
 			.then(updog.getDogs)
 			.then(updog.displayDogs)
 	});

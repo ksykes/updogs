@@ -29,6 +29,7 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 	border: 1px solid #eee;
 	border-radius: 3px;
 	padding: 15px;
+	position: relative;
 }
 
 .dogo img {
@@ -154,4 +155,15 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 .updog:active {
 	box-shadow: inset -2px 2px 0 0 #2E7D32;
+}
+
+.fa-times {
+	cursor: pointer;
+	color: #FF7043;
+	text-align: right;
+	display: block;
+	padding-bottom: 5px;
+	/*position: absolute;*/
+	/*top: 2%;*/
+	/*left: 93%;*/
 }
